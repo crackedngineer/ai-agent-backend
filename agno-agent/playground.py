@@ -12,10 +12,13 @@ agent_storage: str = "tmp/agents.db"
 # Fetch ENV variables
 LITELLM_BASE_URL = os.getenv("LITELLM_BASE_URL", "http://localhost:4000/")
 LITELLM_API_KEY = os.getenv("LITELLM_API_KEY", "sk-xxxxxx")
+LITELLM_MODEL_NAME = os.getenv(
+    "LITELLM_MODEL_NAME", "openrouter/anthropic/claude-3-5-haiku-20241022"
+)
 
 
 litellm_model = LiteLLMOpenAI(
-    id="openrouter/anthropic/claude-3-5-haiku-20241022",
+    id=LITELLM_MODEL_NAME,
     base_url="http://litellm.local.oderna.in/",
     api_key=LITELLM_API_KEY,
 )
@@ -57,7 +60,7 @@ finance_agent = Agent(
 )
 playground = Playground(
     agents=[web_agent, finance_agent],
-    settings=PlaygroundSettings(cors_origin_list=["http://192.168.31.222:3000"])
+    settings=PlaygroundSettings(cors_origin_list=["http://192.168.31.222:3000"]),
 )
 app = playground.get_app()
 

@@ -13,7 +13,7 @@ agent_storage: str = "tmp/agents.db"
 LITELLM_BASE_URL = os.getenv("LITELLM_BASE_URL", "http://localhost:4000/")
 LITELLM_API_KEY = os.getenv("LITELLM_API_KEY", "sk-xxxxxx")
 LITELLM_MODEL_NAME = os.getenv(
-    "LITELLM_MODEL_NAME", "openrouter/anthropic/claude-3-5-haiku-20241022"
+    "LITELLM_MODEL_ID", "openrouter/anthropic/claude-3-5-haiku-20241022"
 )
 
 

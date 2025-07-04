@@ -59,4 +59,4 @@ playground = Playground(agents=[web_agent, finance_agent])
 app = playground.get_app()
 
 if __name__ == "__main__":
-    playground.serve("playground:app", reload=True, port=8000)
+    playground.serve("playground:app", reload=True, port=8000, host="0.0.0.0")

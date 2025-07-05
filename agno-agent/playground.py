@@ -60,7 +60,13 @@ finance_agent = Agent(
 )
 playground = Playground(
     agents=[web_agent, finance_agent],
-    settings=PlaygroundSettings(cors_origin_list=["http://192.168.31.222:3000"]),
+    settings=PlaygroundSettings(
+        cors_origin_list=[
+            "http://192.168.31.222:3000",
+            "http://host.docker.internal:3000",
+            "http://ui:3000",
+        ]
+    ),
 )
 app = playground.get_app()
 
